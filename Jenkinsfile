@@ -6,7 +6,7 @@ pipeline {
     stage('Checkout') {
       steps {
         sh 'echo passed'
-        //git branch: 'main', url: 'https://github.com/ousamabouaziz/SpringBoot.git'
+        //git branch: 'spring', url: 'https://github.com/ousamabouaziz/SpringBoot.git'
       }
     }
     stage('Build and Test') {
