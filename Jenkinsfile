@@ -13,6 +13,7 @@ pipeline {
       steps {
         sh 'ls -ltr'
         // build the project and create a JAR file
+        sh 'mvn validate'
         sh 'mvn clean package'
       }
     }
