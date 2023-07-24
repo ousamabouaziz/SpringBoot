@@ -11,9 +11,10 @@ pipeline {
     }
     stage('Build and Test') {
       steps {
-        sh 'ls -ltr'
-        // build the project and create a JAR file
+        
         sh 'mvn validate'
+        sh 'mvn test'
+        sh 'mvn verify -DskipUnitTests'
         sh 'mvn clean package'
       }
     }
