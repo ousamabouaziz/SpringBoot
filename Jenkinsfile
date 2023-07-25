@@ -21,8 +21,7 @@ pipeline{
             steps{
                 
                 script{
-                    sh 'mvn validate'
-                    sh 'mvn clean install'
+                   
                     sh 'mvn test'
                 }
             }
