@@ -10,7 +10,7 @@ pipeline{
                 
                 script{
                     
-                    git branch: 'spring', url: 'https://github.com/ousamabouaziz/SpringBoot.git'
+                    git branch: 'spring', credentialsId: 'github', url: 'https://github.com/ousamabouaziz/SpringBoot.git'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline{
             steps{
                 
                 script{
-
+                    sh 'mvn validate'
                     sh 'mvn clean install'
                     sh 'mvn test'
                 }
