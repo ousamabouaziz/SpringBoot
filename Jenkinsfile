@@ -35,7 +35,7 @@ pipeline{
                 
                 script{
                     
-                    sh 'mvn clean install'
+                    sh 'mvn compile'
                 }
             }
         }
