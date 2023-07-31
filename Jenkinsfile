@@ -29,13 +29,24 @@ pipeline{
         
 
 
-                stage('Maven build'){
+        stage('Maven build'){
             
             steps{
                 
                 script{
                     
                     sh 'mvn compile'
+                }
+            }
+        }
+
+         stage('Maven package'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn package'
                 }
             }
         }
