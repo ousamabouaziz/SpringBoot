@@ -16,7 +16,7 @@ pipeline{
         }
 
 
-        stage('UNIT testing'){
+        stage('maven testing'){
             
             steps{
                 
@@ -40,16 +40,7 @@ pipeline{
             }
         }
 
-         stage('Maven package'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn package -DskipTests'
-                }
-            }
-        }
+         
 
         stage("Sonarqube Analysis") {
             steps {
