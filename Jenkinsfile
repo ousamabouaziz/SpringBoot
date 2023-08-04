@@ -63,6 +63,35 @@ pipeline{
         }
 
 
+        stage("Uploader to Nexus") {
+            steps {
+                script {
+
+                    nexusArtifactUploader artifacts:
+                        [
+                            [
+                                artifactId: 'demo', 
+                             classifier: '', 
+                             file: 'target/', 
+                             type: 'jar'
+                            ]
+                        ],
+                        credentialsId: 'nexus',
+                        groupId: 'com.example', 
+                        nexusUrl: 'localhost:8081/', 
+                        nexusVersion: 'nexus3', 
+                        protocol: 'http', 
+                        repository: 'springboot-release', 
+                        version: '0.0.1-SNAPSHOT'
+                    
+                }
+            }
+
+        }
+
+
+
+        
 
 
       
