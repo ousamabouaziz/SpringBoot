@@ -15,6 +15,29 @@ pipeline{
             }
         }
 
+         stage('Maven validation'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn validate'
+                }
+            }
+        }
+
+
+         stage('Maven compilation'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn compile'
+                }
+            }
+        }
+
 
         stage('maven testing'){
             
@@ -28,19 +51,6 @@ pipeline{
         }
         
 
-
-        stage('Maven build'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn compile'
-                }
-            }
-        }
-
-         
 
         stage("Sonarqube Analysis") {
             steps {
@@ -62,6 +72,7 @@ pipeline{
 
         }
 
+        
 
         stage("Uploader to Nexus") {
             steps {
