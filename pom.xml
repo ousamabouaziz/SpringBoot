@@ -62,14 +62,6 @@
                 </snapshotRepository>
         </distributionManagement>
 
-	<servers>
-                <server>
-                         <id>nexus</id>
-                         <username>admin</username>
-                         <password>admin</password>
-                </server>
-        </servers>
-
 
 	<build>
 		<plugins>
