@@ -15,6 +15,17 @@ pipeline{
             }
         }
 
+           stage('Maven validation'){
+            
+            steps{
+                
+                script{
+                    
+                    sh 'mvn validate'
+                }
+            }
+        }
+
 
 
 
