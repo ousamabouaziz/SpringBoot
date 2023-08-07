@@ -127,6 +127,24 @@ pipeline{
         }
 
 
+         stage('docker push'){
+            
+            steps{
+                
+                script{
+                   
+                    withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+
+                        sh 'docker login -u oussemabouaziz -p ${dockerhub} '
+                        sh 'docker image push oussemabouaziz/$JOB_NAME:v1.$BUILD_ID'
+                        sh 'docker image push oussemabouaziz/$JOB_NAME:latest'
+    
+                    }
+                }
+            }
+        }
+
+
 
 
         
