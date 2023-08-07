@@ -82,7 +82,7 @@ pipeline{
                             [
                              artifactId: 'demo', 
                              classifier: '', 
-                             file: 'target/', 
+                             file: 'target/demo.jar', 
                              type: 'jar'
                             ]
                         ],
