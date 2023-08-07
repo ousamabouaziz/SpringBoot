@@ -1,13 +1,11 @@
-# You can change this base image to anything else
-# But make sure to use the correct version of Java
-FROM adoptopenjdk/openjdk11:alpine-jre
 
-# Simply the artifact path
-ARG artifact=target/demo-web.jar
+FROM maven as build
+WORKDIR /app
+COPY . .
+RUN mvn install
 
-WORKDIR /opt/app
-
-COPY ${artifact} app.jar
-
-# This should not be changed
-ENTRYPOINT ["java","-jar","app.jar"]
+FROM openjdk:17
+WORKDIR /app
+COPY --from=build /app/target/demo.jar /app
+EXPOSE 9090
+CMD ["java","-jar","demo.jar"]
