@@ -59,6 +59,7 @@ pipeline{
         stage("Sonarqube Analysis") {
             steps {
                 script {
+                    
                     withSonarQubeEnv(credentialsId: 'sonarqube') {
                         sh "mvn clean package -DskipTests sonar:sonar"
                     }
@@ -74,7 +75,8 @@ pipeline{
         stage("Uploader to Nexus") {
             steps {
                 script {
-
+                    def pom = readMavenPom file: "pom.xml";
+                    
                     nexusArtifactUploader artifacts:
                         [
                             [
@@ -90,7 +92,7 @@ pipeline{
                         nexusVersion: 'nexus3', 
                         protocol: 'http', 
                         repository: 'springboot-release', 
-                        version: '0.0.1-SNAPSHOT'
+                        version: '$(pom.version)'
                     
                 }
             }
