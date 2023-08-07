@@ -87,13 +87,16 @@ pipeline{
             steps {
                 script {
                     def pom = readMavenPom file: "pom.xml";
+                    def filesByGlob = findFiles(glob: "target/*.${pom.packaging}");
+                    artifactPath = filesByGlob[0].path;
+
                     
                     nexusArtifactUploader artifacts:
                         [
                             [
                              artifactId: 'demo', 
                              classifier: '', 
-                             file: 'target/demo-1.0.1-SNAPSHOT.jar', 
+                             file: 'artifactPath', 
                              type: 'jar'
                             ]
                         ],
