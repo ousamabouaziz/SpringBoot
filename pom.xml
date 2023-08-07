@@ -45,19 +45,6 @@
 		
 	</dependencies>
 
-	<distributionManagement>
-                <repository>
-                        <id>nexus</id>
-                        <name>Releases</name>
-                        <url>http://localhost:8081/repository/springboot-release</url>
-                </repository>
-                <snapshotRepository>
-                        <id>nexus</id>
-                        <name>Snapshot</name>
-                        <url>http://localhost:8081/repository/springboot-snapshots</url>
-                </snapshotRepository>
-        </distributionManagement>
-
 
 	<build>
 		<plugins>
