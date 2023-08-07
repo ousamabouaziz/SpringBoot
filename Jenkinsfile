@@ -52,16 +52,7 @@ pipeline{
             }
         }
 
-         stage('maven building'){
-            
-            steps{
-                
-                script{
-                   
-                    sh 'mvn build -DskipTests'
-                }
-            }
-        }
+        
         
 
 
