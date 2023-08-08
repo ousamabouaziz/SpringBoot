@@ -22,21 +22,8 @@ pipeline{
             }
         }
 
-           stage('Maven validation'){
-            
-            steps{
-                
-                script{
-                    
-                    sh 'mvn validate'
-                }
-            }
-        }
 
-
-
-
-         stage('Maven compilation'){
+        stage('Maven compilation'){
             
             steps{
                 
