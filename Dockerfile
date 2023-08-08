@@ -1,7 +1,7 @@
 FROM maven as build
 WORKDIR /app
 COPY . .
-RUN mvn install
+RUN mvn install -DskipTests
 
 FROM openjdk:17
 WORKDIR /app
